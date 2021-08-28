@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d07b51d-718c-4743-bbdd-745315e3d205" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/easycoupons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easycoupons.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easycoupons.php" beforeDir="false" afterPath="$PROJECT_DIR$/easycoupons.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Admin/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Admin/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/admin/EasyCoupons.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/EasyCoupons.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +16,15 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="DrupalConfiguration">
+    <drupalPath />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JoomlaConfiguration">
+    <joomlaConfigPath />
+    <joomlaPath />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -32,6 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -42,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630123040113</updated>
-      <workItem from="1630123041364" duration="831000" />
+      <workItem from="1630123041364" duration="2147000" />
     </task>
     <servers />
   </component>
@@ -59,5 +69,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>$PROJECT_DIR$/../../..</wordpressPath>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="easycoupons" type="b2602c69:ProjectViewProjectNode" />
+        <item name="easycoupons" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>

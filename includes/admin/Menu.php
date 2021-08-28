@@ -8,14 +8,14 @@ class Menu {
      *
      * @var \EasyCoupons
      */
-    private $auctionSettings;
+    private $easyCoupons;
 
     /**
      * Class constructor.
      */
-    public function __construct(EasyCoupons $auctionSettings ) {
+    public function __construct(EasyCoupons $easyCoupons ) {
 
-        $this->auctionSettings = $auctionSettings;
+        $this->auctionSettings = $easyCoupons;
         add_action( 'admin_menu', [$this, 'admin_menu'] );
     }
 
@@ -26,6 +26,9 @@ class Menu {
         $icon         = 'dashicons-admin-multisite';
 
         $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->auctionSettings, 'menu_page'], $icon );
+        add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->auctionSettings, 'menu_page'], $icon );
+        add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->auctionSettings, 'menu_page'] );
+
         add_action( 'load-' . $hook, [$this, 'menu_script'] );
     }
 
