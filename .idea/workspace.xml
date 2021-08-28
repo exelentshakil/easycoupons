@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8d07b51d-718c-4743-bbdd-745315e3d205" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/Assets.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Assets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/EasyCoupons.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/EasyCoupons.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/views/settings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +38,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes/Admin/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/includes/Admin/views" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630123040113</updated>
-      <workItem from="1630123041364" duration="3314000" />
+      <workItem from="1630123041364" duration="7026000" />
     </task>
     <servers />
   </component>

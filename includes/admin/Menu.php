@@ -27,6 +27,7 @@ class Menu {
 
         $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
         add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
+        add_submenu_page( $slug, __( 'All Coupons', 'easycoupons' ), __( 'All Coupons', 'easycoupons' ), $capabilities, 'coupons', [$this->easyCoupons, 'coupons'] );
         add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->easyCoupons, 'generate_coupons'] );
 
         add_action( 'load-' . $hook, [$this, 'menu_script'] );
