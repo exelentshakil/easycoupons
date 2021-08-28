@@ -127,7 +127,7 @@ class EasyCoupons {
      * @param $post
      */
     public function meta_box_callback( $post ) {
-        wp_nonce_field( 'LockedVideo_data', 'LockedVideo_nonce' );
+        wp_nonce_field( 'easy_coupons_nonce', 'easy_coupons_nonce' );
         $this->field_generator( $post );
     }
 
@@ -172,11 +172,11 @@ class EasyCoupons {
      * @return mixed
      */
     public function save_fields( $post_id ) {
-        if ( ! isset( $_POST['LockedVideo_nonce'] ) ) {
+        if ( ! isset( $_POST['easy_coupons_nonce'] ) ) {
             return $post_id;
         }
-        $nonce = $_POST['LockedVideo_nonce'];
-        if ( ! wp_verify_nonce( $nonce, 'LockedVideo_data' ) ) {
+        $nonce = $_POST['easy_coupons_nonce'];
+        if ( ! wp_verify_nonce( $nonce, 'easy_coupons_nonce' ) ) {
             return $post_id;
         }
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
