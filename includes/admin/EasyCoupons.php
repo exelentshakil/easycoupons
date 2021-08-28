@@ -33,6 +33,8 @@ class EasyCoupons {
         // add custom meta box
         add_action( 'add_meta_boxes', [$this, 'add_meta_boxes'] );
         add_action( 'save_post', [$this, 'save_fields'] );
+
+        add_action( 'submitpost_box', [$this, 'callback__submitpost_box'] );
     }
 
     public function coupons() {
@@ -86,7 +88,7 @@ class EasyCoupons {
                 $item = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $_REQUEST['id']), ARRAY_A);
                 if (!$item) {
                     $item = $default;
-                    $notice = __('Item not found', 'easy-coupons');
+                    $notice = __('Item not found', 'easycoupons');
                 }
             }
         }
@@ -97,8 +99,8 @@ class EasyCoupons {
         ?>
         <div class="wrap">
             <div class="icon32 icon32-posts-post" id="icon-edit"><br></div>
-            <h2><?php _e('Easy Coupons', 'easy-coupons')?>
-                <a class="add-new-h2" href="<?php echo get_admin_url(get_current_blog_id(), 'admin.php?page=coupons');?>"><?php _e('Back to list', 'easy-coupons')?></a>
+            <h2><?php _e('Easy Coupons', 'easycoupons')?>
+                <a class="add-new-h2" href="<?php echo get_admin_url(get_current_blog_id(), 'admin.php?page=coupons');?>"><?php _e('Back to list', 'easycoupons')?></a>
             </h2>
 
             <?php if (!empty($notice)): ?>
@@ -118,7 +120,7 @@ class EasyCoupons {
                         <div id="post-body-content">
                             <?php /* And here we call our custom meta box */ ?>
                             <?php do_meta_boxes('new-coupon', 'normal', $item); ?>
-                            <input type="submit" value="<?php _e('Save', 'easy-coupons')?>" id="submit" class="button-primary" name="submit">
+                            <input type="submit" value="<?php _e('Save', 'easycoupons')?>" id="submit" class="button-primary" name="submit">
                         </div>
                     </div>
                 </div>
@@ -141,7 +143,7 @@ class EasyCoupons {
             <tbody>
             <tr class="form-">
                 <th valign="top" scope="row">
-                    <label for="code_count"><?php _e('Number of Coupon', 'easy-coupons')?></label>
+                    <label for="code_count"><?php _e('Number of Coupon', 'easycoupons')?></label>
                 </th>
                 <td>
                     <input id="code_count" name="code_count" type="number" min="1" max="100" value="1"
@@ -150,7 +152,7 @@ class EasyCoupons {
             </tr>
             <tr class="form-">
                 <th valign="top" scope="row">
-                    <label for="expire_date"><?php _e('Expiry Date', 'easy-coupons')?></label>
+                    <label for="expire_date"><?php _e('Expiry Date', 'easycoupons')?></label>
                 </th>
                 <td>
                     <input id="expire_date" name="expire_date" type="date" class="regular-text" min="<?php echo date('Y-m-d'); ?>" required>
@@ -199,37 +201,37 @@ class EasyCoupons {
     function create_easyvideo_cpt() {
 
         $labels = array(
-            'name' => _x( 'Easy Videos', 'Post Type General Name', 'easy-coupons' ),
-            'singular_name' => _x( 'Easy Video', 'Post Type Singular Name', 'easy-coupons' ),
-            'menu_name' => _x( 'Easy Videos', 'Admin Menu text', 'easy-coupons' ),
-            'name_admin_bar' => _x( 'Easy Video', 'Add New on Toolbar', 'easy-coupons' ),
-            'archives' => __( 'Easy Video Archives', 'easy-coupons' ),
-            'attributes' => __( 'Easy Video Attributes', 'easy-coupons' ),
-            'parent_item_colon' => __( 'Parent Easy Video:', 'easy-coupons' ),
-            'all_items' => __( 'All Easy Videos', 'easy-coupons' ),
-            'add_new_item' => __( 'Add New Easy Video', 'easy-coupons' ),
-            'add_new' => __( 'Add New', 'easy-coupons' ),
-            'new_item' => __( 'New Easy Video', 'easy-coupons' ),
-            'edit_item' => __( 'Edit Easy Video', 'easy-coupons' ),
-            'update_item' => __( 'Update Easy Video', 'easy-coupons' ),
-            'view_item' => __( 'View Easy Video', 'easy-coupons' ),
-            'view_items' => __( 'View Easy Videos', 'easy-coupons' ),
-            'search_items' => __( 'Search Easy Video', 'easy-coupons' ),
-            'not_found' => __( 'Not found', 'easy-coupons' ),
-            'not_found_in_trash' => __( 'Not found in Trash', 'easy-coupons' ),
-            'featured_image' => __( 'Featured Image', 'easy-coupons' ),
-            'set_featured_image' => __( 'Set featured image', 'easy-coupons' ),
-            'remove_featured_image' => __( 'Remove featured image', 'easy-coupons' ),
-            'use_featured_image' => __( 'Use as featured image', 'easy-coupons' ),
-            'insert_into_item' => __( 'Insert into Easy Video', 'easy-coupons' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this Easy Video', 'easy-coupons' ),
-            'items_list' => __( 'Easy Videos list', 'easy-coupons' ),
-            'items_list_navigation' => __( 'Easy Videos list navigation', 'easy-coupons' ),
-            'filter_items_list' => __( 'Filter Easy Videos list', 'easy-coupons' ),
+            'name' => _x( 'Easy Videos', 'Post Type General Name', 'easycoupons' ),
+            'singular_name' => _x( 'Easy Video', 'Post Type Singular Name', 'easycoupons' ),
+            'menu_name' => _x( 'Easy Videos', 'Admin Menu text', 'easycoupons' ),
+            'name_admin_bar' => _x( 'Easy Video', 'Add New on Toolbar', 'easycoupons' ),
+            'archives' => __( 'Easy Video Archives', 'easycoupons' ),
+            'attributes' => __( 'Easy Video Attributes', 'easycoupons' ),
+            'parent_item_colon' => __( 'Parent Easy Video:', 'easycoupons' ),
+            'all_items' => __( 'All Easy Videos', 'easycoupons' ),
+            'add_new_item' => __( 'Add New Easy Video', 'easycoupons' ),
+            'add_new' => __( 'Add New', 'easycoupons' ),
+            'new_item' => __( 'New Easy Video', 'easycoupons' ),
+            'edit_item' => __( 'Edit Easy Video', 'easycoupons' ),
+            'update_item' => __( 'Update Easy Video', 'easycoupons' ),
+            'view_item' => __( 'View Easy Video', 'easycoupons' ),
+            'view_items' => __( 'View Easy Videos', 'easycoupons' ),
+            'search_items' => __( 'Search Easy Video', 'easycoupons' ),
+            'not_found' => __( 'Not found', 'easycoupons' ),
+            'not_found_in_trash' => __( 'Not found in Trash', 'easycoupons' ),
+            'featured_image' => __( 'Featured Image', 'easycoupons' ),
+            'set_featured_image' => __( 'Set featured image', 'easycoupons' ),
+            'remove_featured_image' => __( 'Remove featured image', 'easycoupons' ),
+            'use_featured_image' => __( 'Use as featured image', 'easycoupons' ),
+            'insert_into_item' => __( 'Insert into Easy Video', 'easycoupons' ),
+            'uploaded_to_this_item' => __( 'Uploaded to this Easy Video', 'easycoupons' ),
+            'items_list' => __( 'Easy Videos list', 'easycoupons' ),
+            'items_list_navigation' => __( 'Easy Videos list navigation', 'easycoupons' ),
+            'filter_items_list' => __( 'Filter Easy Videos list', 'easycoupons' ),
         );
         $args = array(
-            'label' => __( 'Easy Video', 'easy-coupons' ),
-            'description' => __( '', 'easy-coupons' ),
+            'label' => __( 'Easy Video', 'easycoupons' ),
+            'description' => __( '', 'easycoupons' ),
             'labels' => $labels,
             'menu_icon' => 'dashicons-video-alt3',
             'supports' => array('title','thumbnail'),
@@ -256,7 +258,7 @@ class EasyCoupons {
     public function add_meta_boxes() {
         add_meta_box(
             'LockedVideo',
-            __( 'Locked Video', 'easy-coupons' ),
+            __( 'Locked Video', 'easycoupons' ),
             [$this, 'meta_box_callback'],
             'easy-video',
             'normal',
@@ -337,6 +339,21 @@ class EasyCoupons {
             } else if ( 'checkbox' === $field['type'] ) {
                 update_post_meta( $post_id, $field['id'], '0' );
             }
+        }
+    }
+
+    /**
+     * @param $post
+     */
+    public function callback__submitpost_box( $post ) {
+        if ( 'easy-video' === $post->post_type && 'publish' === $post->post_status ) {
+            echo '<div class="sc-box">
+			<div class="postbox-header"><h2 class="hndle ui-sortable-handle">Video Shortcode</h2></div>
+			<div class="inside">
+			<input type="text" value="[easy-coupon id=', esc_attr( $post->ID ), ']" readonly>
+			<p>Use this shortcode to render a locked video</p>
+			</div>
+			</div>';
         }
     }
 

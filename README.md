@@ -14,7 +14,7 @@ Coming soon.
     - [x] As an admin, I should be able to bulk generate any quantity of randomly generated, unique 4 character alpha-numeric coupon codes (ex. f5Ba, 891d, etc.) - **5 hours**
     - [x] As an admin, I should be able to search and delete any individual coupon code - **1 hours**
     - [x] As an admin, I should be able to specify an expiry date when I generate coupon codes  - **1 hours**
-    - [] As an admin, I should be able to bulk delete coupons based on expiry date  - **2 hours**
+    - [x] As an admin, I should be able to bulk delete coupons based on expiry date  - **2 hours**
 - [] Create a page with 3 gated educational YouTube videos
     - [] As a visitor, to unlock and display a single video I should be able to enter a single valid coupon code (found in the database and future expiry) - **3 hours**
     - [] As a visitor, I should receive an error message if I attempt to use the same coupon code more than once - **2hours**

@@ -6,24 +6,18 @@ class Ajax {
      * Class constructor.
      */
     public function __construct() {
-        add_action( 'wp_ajax_nopriv_update_product_meta', [$this, 'ajax_save_add_product_meta'] );
-        add_action( 'wp_ajax_update_product_meta', [$this, 'ajax_save_add_product_meta'] );
-
-        add_action( 'wp_ajax_nopriv_sign_up', [$this, 'sign_up'] );
-        add_action( 'wp_ajax_sign_up', [$this, 'sign_up'] );
-
-        add_action( 'wp_ajax_nopriv_sign_in', [$this, 'sign_in'] );
-        add_action( 'wp_ajax_sign_in', [$this, 'sign_in'] );
-
-        add_action( 'wp_ajax_nopriv_logout', [$this, 'ris_logout'] );
-        add_action( 'wp_ajax_ris_logout', [$this, 'ris_logout'] );
 
         // delete coupon
         add_action( 'wp_ajax_delete_coupon', [$this, 'delete_coupon'] );
+        add_action( 'wp_ajax_delete_coupon_by_expiry_date', [$this, 'delete_coupon_by_expiry_date'] );
+
+        // easy videos
+        add_action( 'wp_ajax_unlock_a_vid', [$this,'easyvid_unlock_func'] );
+        add_action( 'wp_ajax_nopriv_unlock_a_vid', [$this,'easyvid_unlock_func'] );
     }
 
     public function delete_coupon() {
-
+        if ( wp_verify_nonce($_REQUEST['']))
         if( ! current_user_can( 'administrator' ) ) {
             wp_die('You don\'t have permission' );
         }
@@ -38,260 +32,125 @@ class Ajax {
         exit;
 
     }
+    public function delete_coupon_by_expiry_date() {
 
-    public function ris_logout() {
-
-        wp_clear_auth_cookie();
-        wp_logout();
-        ob_clean(); // probably overkill for this, but good habit
-
-        unset( $_COOKIE['ris_auction_auth_token'] );
-        unset( $_COOKIE['ris_auction_auth_email'] );
-        unset( $_COOKIE['ris_auction_auth_username'] );
-
-        setcookie( 'ris_auction_auth_token', '', -1, '/' );
-        setcookie( 'ris_auction_auth_email', '', -1, '/' );
-        setcookie( 'ris_auction_auth_username', '', -1, '/' );
-
-        wp_send_json_success();
-    }
-
-    public function sign_up() {
-        $username = isset( $_POST['username'] ) ? $_POST['username'] : '';
-        $email    = isset( $_POST['email'] ) ? $_POST['email'] : '';
-        $password = isset( $_POST['password'] ) ? $_POST['password'] : '';
-
-        if ( ! empty( $username ) ) {
-
-            $user_data = array(
-                'user_login' => $username,
-                'user_email' => $email,
-                'user_pass'  => $password,
-                'role'       => 'subscriber',
-            );
-
-            $user_id = wp_insert_user( $user_data );
-
-            $api_response = wp_remote_post( 'https://wordpress-582935-2005777.cloudwaysapps.com/wp-json/wp/v2/users', array(
-                //'method'    => 'PUT',
-                'headers' => array(
-                ),
-                'body'    => array(
-                    'username' => $username,
-                    'email'    => $email,
-                    'password' => $password,
-                ),
-            ) );
-
-            $body                                  = json_decode( $api_response['body'] );
-            $_SESSION['ris_auction_auth_username'] = $body->username;
-            $_SESSION['ris_auction_auth_email']    = $body->email;
-
-            setcookie( 'ris_auction_auth_username', $body->username, strtotime( '+1 day' ), '/' );
-            setcookie( 'ris_auction_auth_email', $body->email, strtotime( '+1 day' ), '/' );
-
-            wp_send_json_success( $body );
+        if( ! current_user_can( 'administrator' ) ) {
+            wp_die('You don\'t have permission' );
         }
+        $date = isset( $_REQUEST['expire_date'] ) ? sanitize_text_field($_REQUEST['expire_date']) : 0;
 
-    }
+        $delete =  ec_delete_by($date);
 
-    public function sign_in() {
-        $email    = isset( $_POST['email'] ) ? $_POST['email'] : '';
-        $password = isset( $_POST['password'] ) ? $_POST['password'] : '';
-
-        if ( ! empty( $email ) ) {
-
-            $client_error = '';
-            $creds        = array(
-                'user_login'    => $email,
-                'user_password' => $password,
-                'remember'      => true,
-            );
-
-            $user = wp_signon( $creds, false );
-
-            if ( is_wp_error( $user ) ) {
-                $client_error = $user->get_error_message();
-            }
-
-            $api_response = wp_remote_post( get_bloginfo( 'url' ) . '/wp-json/jwt-auth/v1/token', array(
-                //'method'    => 'PUT',
-                'headers' => array(
-                ),
-                'body'    => array(
-                    'username' => $email,
-                    'password' => $password,
-                ),
-            ) );
-
-            $api_response = wp_remote_post( 'https://wordpress-582935-2005777.cloudwaysapps.com/wp-json/jwt-auth/v1/token', array(
-                //'method'    => 'PUT',
-                'headers' => array(
-                    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd29yZHByZXNzLTU4MjkzNS0yMDA1Nzc3LmNsb3Vkd2F5c2FwcHMuY29tIiwiaWF0IjoxNjI0NzMwOTkyLCJuYmYiOjE2MjQ3MzA5OTIsImV4cCI6MTYyNTMzNTc5MiwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiMSJ9fX0.r1wVF7S91fI8uySd0VGs8hAYsTPwNfJ2TqzkvqF3GU0',
-                ),
-                'body'    => array(
-                    'username' => $email,
-                    'password' => $password,
-                ),
-            ) );
-
-            $body                                  = json_decode( $api_response['body'] );
-            $_SESSION['ris_auction_auth_username'] = $body->username;
-            $_SESSION['ris_auction_auth_email']    = $body->email;
-
-            setcookie( 'ris_auction_auth_token', $body->token, strtotime( '+1 day' ), '/' );
-            setcookie( 'ris_auction_auth_username', $body->user_nicename, strtotime( '+1 day' ), '/' );
-            setcookie( 'ris_auction_auth_email', $body->user_email, strtotime( '+1 day' ), '/' );
-
-            wp_send_json_success( [$body, $client_error] );
+        if ( $delete ) {
+            wp_send_json_success();
         }
-
-    }
-
-    public function ajax_save_add_product_meta() {
-        $token          = isset( $_POST['token'] ) && ! empty( $_POST['token'] ) ? $_POST['token'] : '';
-        $product_id     = isset( $_POST['dokan_product_id'] ) ? absint( $_POST['dokan_product_id'] ) : 0;
-        $post_title     = isset( $_POST['post_title'] ) ? trim( $_POST['post_title'] ) : '';
-        $post_content   = isset( $_POST['post_content'] ) ? trim( $_POST['post_content'] ) : '';
-        $post_excerpt   = isset( $_POST['post_excerpt'] ) ? trim( $_POST['post_excerpt'] ) : '';
-        $featured_image = isset( $_POST['feat_image_id'] ) ? absint( $_POST['feat_image_id'] ) : '';
-
-        if ( empty( $product_id ) ) {
-
-            $post_data = array(
-                'post_type'    => 'product',
-                'post_status'  => 'published',
-                'post_title'   => $post_title,
-                'post_content' => $post_content,
-                'post_excerpt' => $post_excerpt,
-                'post_author'  => get_current_user_id(),
-            );
-
-            $product_id = wp_insert_post( $post_data );
-
-            if ( $product_id ) {
-
-                if ( $featured_image ) {
-                    set_post_thumbnail( $product_id, $featured_image );
-                }
-
-                $attachment_ids = array_filter( explode( ',', wc_clean( $_POST['product_image_gallery'] ) ) );
-                $images         = [];
-
-                foreach ( $attachment_ids as $id ) {
-                    $img      = wp_get_attachment_image_src( $id, 'full' );
-                    $images[] = [
-                        'src' => $img[0],
-                    ];
-                }
-
-                $api_response = wp_remote_post( 'https://wordpress-582935-2005777.cloudwaysapps.com/wp-json/wc/v3/products', array(
-
-                    //'method'    => 'PUT',
-
-                    'headers' => array(
-
-                        'Authorization' => 'Bearer ' . $token,
-
-                    ),
-
-                    'body'    => array(
-                        'name'              => $post_data['post_title'],
-                        'type'              => 'auction',
-                        '_regular_price'    => '1000000.00',
-                        'description'       => $post_data['post_content'],
-                        'short_description' => $post_data['post_excerpt'],
-                        'images'            => $images,
-                    ),
-
-                ) );
-
-                $body = json_decode( $api_response['body'] );
-
-                if ( wp_remote_retrieve_response_message( $api_response ) === 'OK' ) {
-
-                    echo 'The product ' . $body->name . ' has been updated';
-                }
-
-                return wp_send_json_success( $body );
-            }
-
-        } else { // id is not empty lets update
-
-            $address        = isset( $_POST['address'] ) ? $_POST['address'] : '';
-            $home_details   = isset( $_POST['home_details'] ) ? $_POST['home_details'] : '';
-            $contact        = isset( $_POST['contact'] ) ? $_POST['contact'] : '';
-            $home_features  = isset( $_POST['home_features'] ) ? $_POST['home_features'] : '';
-            $video          = isset( $_POST['video'] ) ? $_POST['video'] : '';
-            $attachment_ids = array_filter( explode( ',', wc_clean( $_POST['product_image_gallery'] ) ) );
-            $images         = [];
-
-            foreach ( $attachment_ids as $id ) {
-                $img      = wp_get_attachment_image_src( $id, 'full' );
-                $images[] = [
-                    'src' => $img[0],
-                ];
-            }
-
-            $post_data = array(
-                'ID'           => $product_id,
-                'post_type'    => 'product',
-                'type'         => 'auction',
-                'post_status'  => 'published',
-                'post_title'   => $post_title,
-                'post_content' => $post_content,
-                'post_excerpt' => $post_excerpt,
-                'post_author'  => get_current_user_id(),
-            );
-
-            $property_data = [
-                'address'       => $address,
-                'home_details'  => $home_details,
-                'contact'       => $contact,
-                'home_features' => $home_features,
-                'video'         => $video,
-            ];
-
-            $api_response = wp_remote_post( 'https://wordpress-582935-2005777.cloudwaysapps.com/wp-json/wc/v3/products/' . $product_id, array(
-
-                //'method'  => 'PUT',
-
-                'headers' => array(
-                    'Authorization' => 'Bearer ' . $token,
-                ),
-
-                'body'    => array(
-
-                    'name'              => $post_data['post_title'],
-                    'type'              => 'auction',
-                    '_regular_price'    => '1000000.00',
-                    'description'       => $post_data['post_content'],
-                    'short_description' => $post_data['post_excerpt'],
-                    'images'            => $images,
-                    'meta_data'         => [
-                        [
-                            'key'   => 'property_data',
-                            'value' => $property_data,
-                        ],
-
-                    ],
-
-                ),
-
-            ) );
-
-            $body = json_decode( $api_response['body'] );
-
-            if ( wp_remote_retrieve_response_message( $api_response ) === 'OK' ) {
-
-                echo 'The product ' . $body->name . ' has been updated';
-            }
-
-            return wp_send_json_success( $body );
-
-        }
+        wp_send_json_error();
 
         exit;
+
+    }
+
+    function easyvid_unlock_func(){
+        $vid_id = $_REQUEST['vid_id'];
+        $coupon = $_REQUEST['coupon'];
+
+        $status = $this->check_coupon($coupon);
+
+        if(1 === $status){
+            $this->set_unlocked($vid_id);
+
+            echo get_post_meta($vid_id, 'video', true);
+        }elseif(2 === $status){
+            echo "code_used";
+        }else{
+            echo "code_invalid";
+        }
+
+        $this->log_entry($status, $coupon, $vid_id);
+        die();
+    }
+
+    function set_unlocked($vid_id){
+        if(isset($_COOKIE['unlocked_vids'])) {
+            $prev_value = urldecode($_COOKIE['unlocked_vids']);
+            $prev_value = stripslashes($prev_value);
+            $prev_value = json_decode($prev_value,true);
+            if(!in_array($vid_id, $prev_value)){
+                array_push($prev_value, $vid_id);
+            }
+            $new_value = json_encode($prev_value);
+            setcookie('unlocked_vids', $new_value, time() + (86400 * 30), "/");
+        }else{
+            $init_value = array($vid_id);
+            $init_value = json_encode($init_value);
+            setcookie('unlocked_vids', $init_value, time() + (86400 * 30), "/");
+        }
+    }
+
+    function check_coupon($coupon){
+        global $wpdb;
+        $table = $wpdb->prefix . 'easycoupons';
+
+        if(($coupon == "ADMN" ) && is_user_logged_in() && current_user_can( 'administrator' )){
+            return 1;
+        }
+
+        $log_sts = 0;
+
+        $has_coupon = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table WHERE coupon = '$coupon'"));
+
+        if($has_coupon){
+            $status = $has_coupon->is_used;
+            $expiry_date = $has_coupon->expiry_date;
+            $now = date("Y-m-d H:i:s");
+
+            if($now >= $expiry_date){
+                $log_sts = 4;
+                $this->coupon_use($coupon, true);
+            }elseif(0 === absint($status)){
+                $log_sts = 1;
+                $this->coupon_use($coupon);
+            }else{
+                $log_sts = 2;
+            }
+        }else{
+            $log_sts = 3;
+        }
+
+        return $log_sts;
+    }
+
+    function coupon_use($code, $is_expired = false ){
+        global $wpdb;
+        $table = $wpdb->prefix . 'easycoupons';
+
+        if($code != "ADMN"){
+            $status = 1;
+            if($is_expired){
+                $status = 2;
+            }
+            $wpdb->update( $table, array( 'is_used' => $status ),array('coupon'=>$code));
+        }
+    }
+
+    function log_entry($status, $coupon, $vid_id){
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'easycoupons_logs';
+
+        $vid_title = get_the_title($vid_id);
+
+        $item  = array(
+            'coupon' => $coupon,
+            'status' => $status,
+            'video_id' => $vid_id,
+            'video_title' => $vid_title,
+            'created_at' => date('Y-m-d H:i:s'),
+        );
+
+        $format = array('%s','%d','%d','%s','%s');
+
+
+        $wpdb->insert($table_name, $item, $format);
 
     }
 

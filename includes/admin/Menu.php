@@ -23,7 +23,7 @@ class Menu {
 
         $capabilities = 'manage_options';
         $slug         = 'easy-coupons';
-        $icon         = 'dashicons-admin-multisite';
+        $icon         = 'dashicons-embed-video';
 
         $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
         add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );

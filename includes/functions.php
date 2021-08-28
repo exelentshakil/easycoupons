@@ -33,6 +33,15 @@ function ec_delete_coupon($id) {
     );
 }
 
+function ec_delete_by($date) {
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'easycoupons';
+
+    $sql = $wpdb->prepare("DELETE FROM $table WHERE DATE(expiry_date)='$date'");
+    return $wpdb->query( $sql );
+}
+
 
 function unlock_video(){}
 
