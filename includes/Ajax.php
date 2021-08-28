@@ -11,6 +11,10 @@ class Ajax {
         add_action( 'wp_ajax_delete_coupon', [$this, 'delete_coupon'] );
         add_action( 'wp_ajax_delete_coupon_by_expiry_date', [$this, 'delete_coupon_by_expiry_date'] );
 
+        // delete coupons log
+        add_action( 'wp_ajax_delete_coupon_log', [$this, 'delete_coupon_log'] );
+        add_action( 'wp_ajax_delete_coupon_log_by_expiry_date', [$this, 'delete_coupon_log_by_expiry_date'] );
+
         // easy videos
         add_action( 'wp_ajax_unlock_a_vid', [$this,'easyvid_unlock_func'] );
         add_action( 'wp_ajax_nopriv_unlock_a_vid', [$this,'easyvid_unlock_func'] );
@@ -18,9 +22,9 @@ class Ajax {
 
     public function delete_coupon() {
         if ( wp_verify_nonce($_REQUEST['']))
-        if( ! current_user_can( 'administrator' ) ) {
-            wp_die('You don\'t have permission' );
-        }
+            if( ! current_user_can( 'administrator' ) ) {
+                wp_die('You don\'t have permission' );
+            }
 
         $id = isset( $_REQUEST['id'] ) ? intval($_REQUEST['id']) : 0;
 
@@ -45,6 +49,40 @@ class Ajax {
             wp_send_json_success();
         }
         wp_send_json_error();
+
+        exit;
+
+    }
+
+    public function delete_coupon_log() {
+        if ( wp_verify_nonce($_REQUEST['']))
+            if( ! current_user_can( 'administrator' ) ) {
+                wp_die('You don\'t have permission' );
+            }
+
+        $id = isset( $_REQUEST['id'] ) ? intval($_REQUEST['id']) : 0;
+
+        if ( ec_delete_coupon_log($id)) {
+            wp_send_json_success();
+        }
+        wp_send_json_error();
+
+        exit;
+
+    }
+    public function delete_coupon_log_by_expiry_date() {
+
+        if( ! current_user_can( 'administrator' ) ) {
+            wp_die('You don\'t have permission' );
+        }
+        $date = isset( $_REQUEST['expire_date'] ) ? sanitize_text_field($_REQUEST['expire_date']) : 0;
+
+        $delete =  ec_delete_log_by($date);
+
+        if ( $delete ) {
+            wp_send_json_success($date);
+        }
+        wp_send_json_error($date);
 
         exit;
 

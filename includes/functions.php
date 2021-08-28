@@ -5,7 +5,27 @@ function ec_coupons($args = []) {
 
     $table = $wpdb->prefix . 'easycoupons';
     $defaults = [
-        'offset'  => 0,
+        'orderby' => 'id',
+        'order'   => 'ASC'
+    ];
+
+    $args = wp_parse_args($args, $defaults);
+
+    $sql = $wpdb->prepare(
+        "SELECT * FROM {$table} ORDER BY {$args['orderby']} {$args['order']}"
+    );
+
+    $coupons = $wpdb->get_results($sql);
+
+    return $coupons;
+}
+
+
+function ec_coupons_logs($args = []) {
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'easycoupons_logs';
+    $defaults = [
         'orderby' => 'id',
         'order'   => 'ASC'
     ];
@@ -27,12 +47,11 @@ function ec_delete_coupon($id) {
     $table = $wpdb->prefix . 'easycoupons';
 
     return $wpdb->delete(
-      $table,
-      ['id' => $id],
-      ['%d']
+        $table,
+        ['id' => $id],
+        ['%d']
     );
 }
-
 function ec_delete_by($date) {
     global $wpdb;
 
@@ -42,17 +61,23 @@ function ec_delete_by($date) {
     return $wpdb->query( $sql );
 }
 
+// delete coupons log
+function ec_delete_coupon_log($id) {
+    global $wpdb;
 
-function unlock_video(){}
+    $table = $wpdb->prefix . 'easycoupons_log';
 
-function check_coupon($coupon){}
+    return $wpdb->delete(
+        $table,
+        ['id' => $id],
+        ['%d']
+    );
+}
+function ec_delete_log_by($date) {
+    global $wpdb;
 
-function coupon_used($code, $is_expired = false ){}
+    $table = $wpdb->prefix . 'easycoupons_logs';
 
-function log_coupon($status, $coupon, $vid_id){}
-
-
-function generate_code(){
-    $bytes = random_bytes(2);
-    return bin2hex($bytes);
+    $sql = $wpdb->prepare("DELETE FROM $table WHERE DATE(created_at)='$date'");
+    return $wpdb->query( $sql );
 }

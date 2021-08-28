@@ -34,11 +34,16 @@ class EasyCoupons {
         add_action( 'add_meta_boxes', [$this, 'add_meta_boxes'] );
         add_action( 'save_post', [$this, 'save_fields'] );
 
+        // generate shortcode box after post submit
         add_action( 'submitpost_box', [$this, 'callback__submitpost_box'] );
     }
 
     public function coupons() {
         include __DIR__ . '/views/coupons.php';
+    }
+
+    public function coupons_log() {
+        include __DIR__ . '/views/coupons_log.php';
     }
 
     public function generate_coupons() {

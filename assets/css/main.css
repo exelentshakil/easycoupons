@@ -266,4 +266,8 @@ html, body {
     background: #111;
 }
 
+.dataTables_scrollHead {
+    text-align: left;
+}
+
 
