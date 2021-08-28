@@ -4,7 +4,7 @@ Wordpress plugin to allow user watch videos via Coupon Codes
 
 ## How to use
 ```
-Coming soon.
+https://www.loom.com/share/c6723b0675bc4dcd872edbddd01b6a69
 
 ```
 
