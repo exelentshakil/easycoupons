@@ -32,6 +32,4 @@ Coming soon.
     - [] Add code comments as needed to improve the ability for another developer to finish this project
     - [] Update the README with a brief written summary of what's been completed and what still needs to be done
     - [] Update the README Any other feedback including which features could be refactored or improved
-=======
-# easycoupons
->>>>>>> 413974c2b8b05023bbb5bcbd96c9d612901887d5
+
