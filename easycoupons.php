@@ -74,10 +74,17 @@ class EasyCoupons {
 
         $installer = new Easy\Coupons\Installer();
         $installer->run();
+        $this->i18n();
     }
 
+    public function i18n() {
+        load_plugin_textdomain(
+            'easycoupons',
+            false,
+            EASY_COUPONS_PATH . '/languages/'
+        );
+    }
     public function deactive() {}
-
     /**
      * Initialize singleton
      *
