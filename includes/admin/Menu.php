@@ -15,7 +15,7 @@ class Menu {
      */
     public function __construct(EasyCoupons $easyCoupons ) {
 
-        $this->auctionSettings = $easyCoupons;
+        $this->easyCoupons = $easyCoupons;
         add_action( 'admin_menu', [$this, 'admin_menu'] );
     }
 
@@ -25,9 +25,9 @@ class Menu {
         $slug         = 'easy-coupons';
         $icon         = 'dashicons-admin-multisite';
 
-        $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->auctionSettings, 'menu_page'], $icon );
-        add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->auctionSettings, 'menu_page'], $icon );
-        add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->auctionSettings, 'menu_page'] );
+        $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
+        add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
+        add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->easyCoupons, 'menu_page'] );
 
         add_action( 'load-' . $hook, [$this, 'menu_script'] );
     }

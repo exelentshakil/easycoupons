@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d07b51d-718c-4743-bbdd-745315e3d205" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/easycoupons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easycoupons.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/Admin/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Admin/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/EasyCoupons.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/EasyCoupons.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630123040113</updated>
-      <workItem from="1630123041364" duration="2147000" />
+      <workItem from="1630123041364" duration="2213000" />
     </task>
     <servers />
   </component>
