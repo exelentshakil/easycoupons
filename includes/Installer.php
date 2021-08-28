@@ -17,7 +17,7 @@ class Installer {
             update_option( 'easycoupons_installed', time() );
         }
 
-        update_option( 'easycoupon_version', RIS_AUCTION_VERSION );
+        update_option( 'easycoupon_version', EASY_COUPONS_VERSION );
     }
 
     public function create_tables() {

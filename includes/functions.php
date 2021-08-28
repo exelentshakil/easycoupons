@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Fetch all coupons from easycoupons table
+ * @param array $args
+ * @return array|object|null
+ */
 function ec_coupons($args = []) {
     global $wpdb;
 
@@ -21,6 +26,46 @@ function ec_coupons($args = []) {
 }
 
 
+/**
+ * Delete a single coupon by id
+ *
+ * @param $id
+ * @return bool|int
+ */
+function ec_delete_coupon($id) {
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'easycoupons';
+
+    return $wpdb->delete(
+        $table,
+        ['id' => $id],
+        ['%d']
+    );
+}
+
+/**
+ * Delete all coupon by expire date
+ *
+ * @param $date
+ * @return bool|int
+ */
+function ec_delete_by($date) {
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'easycoupons';
+
+    $sql = $wpdb->prepare("DELETE FROM $table WHERE DATE(expiry_date)='$date'");
+    return $wpdb->query( $sql );
+}
+
+
+/**
+ * Fetch all coupons log from easycoupons_logs table
+ *
+ * @param array $args
+ * @return array|object|null
+ */
 function ec_coupons_logs($args = []) {
     global $wpdb;
 
@@ -41,27 +86,12 @@ function ec_coupons_logs($args = []) {
     return $coupons;
 }
 
-function ec_delete_coupon($id) {
-    global $wpdb;
-
-    $table = $wpdb->prefix . 'easycoupons';
-
-    return $wpdb->delete(
-        $table,
-        ['id' => $id],
-        ['%d']
-    );
-}
-function ec_delete_by($date) {
-    global $wpdb;
-
-    $table = $wpdb->prefix . 'easycoupons';
-
-    $sql = $wpdb->prepare("DELETE FROM $table WHERE DATE(expiry_date)='$date'");
-    return $wpdb->query( $sql );
-}
-
-// delete coupons log
+/**
+ * Delete coupon log from easycoupons_logs table by id
+ *
+ * @param $id
+ * @return bool|int
+ */
 function ec_delete_coupon_log($id) {
     global $wpdb;
 
@@ -73,6 +103,13 @@ function ec_delete_coupon_log($id) {
         ['%d']
     );
 }
+
+/**
+ * Delete all coupons log by Date
+ *
+ * @param $date
+ * @return bool|int
+ */
 function ec_delete_log_by($date) {
     global $wpdb;
 
