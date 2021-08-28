@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # WP Easy Coupons
 
 Wordpress plugin to allow user watch videos via Coupon Codes
