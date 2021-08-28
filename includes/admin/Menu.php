@@ -42,6 +42,7 @@ class Menu {
         wp_enqueue_script( 'main' );
         wp_enqueue_style( 'datatable' );
         wp_enqueue_script( 'datatable' );
+        wp_enqueue_script( 'swal' );
     }
 
 }

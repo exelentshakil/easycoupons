@@ -20,8 +20,6 @@ class Assets {
         wp_enqueue_script( 'jquery-ui-autocomplete' );
         wp_enqueue_script( 'jquery-ui-slider' );
         wp_enqueue_script( 'jquery-datetimepicker-min' );
-        wp_enqueue_script( 'year-select' );
-        wp_enqueue_script( 'swal' );
 
 
         // custom scripts
@@ -87,11 +85,16 @@ class Assets {
             'main'  => [
                 'src'     => EASY_COUPONS_ASSETS . '/js/main.js',
                 'version' => filemtime( EASY_COUPONS_PATH . '/assets/js/main.js' ),
-                'deps'    => ['jquery', 'datatables'],
+                'deps'    => ['jquery', 'datatables', 'swal'],
             ],
             'datatables'  => [
                 'src'     => 'https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js',
                 'version' => 1.11,
+                'deps'    => ['jquery'],
+            ],
+            'swal'  => [
+                'src'     => 'https://cdn.jsdelivr.net/npm/sweetalert2@10',
+                'version' => 2.1,
                 'deps'    => ['jquery'],
             ],
         ];

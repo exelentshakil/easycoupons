@@ -21,6 +21,18 @@ function ec_coupons($args = []) {
     return $coupons;
 }
 
+function ec_delete_coupon($id) {
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'easycoupons';
+
+    return $wpdb->delete(
+      $table,
+      ['id' => $id],
+      ['%d']
+    );
+}
+
 
 function unlock_video(){}
 

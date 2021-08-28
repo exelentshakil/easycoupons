@@ -17,6 +17,26 @@ class Ajax {
 
         add_action( 'wp_ajax_nopriv_logout', [$this, 'ris_logout'] );
         add_action( 'wp_ajax_ris_logout', [$this, 'ris_logout'] );
+
+        // delete coupon
+        add_action( 'wp_ajax_delete_coupon', [$this, 'delete_coupon'] );
+    }
+
+    public function delete_coupon() {
+
+        if( ! current_user_can( 'administrator' ) ) {
+            wp_die('You don\'t have permission' );
+        }
+
+        $id = isset( $_REQUEST['id'] ) ? intval($_REQUEST['id']) : 0;
+
+        if ( ec_delete_coupon($id)) {
+            wp_send_json_success();
+        }
+        wp_send_json_error();
+
+        exit;
+
     }
 
     public function ris_logout() {
