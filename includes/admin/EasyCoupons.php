@@ -1,7 +1,7 @@
 <?php
-namespace RIS\Auction\Admin;
+namespace Easy\Coupons\Admin;
 
-class AuctionSettings {
+class EasyCoupons {
 
     public function init( $page ) {
 

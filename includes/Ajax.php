@@ -1,5 +1,5 @@
 <?php
-namespace RIS\Auction;
+namespace Easy\Coupons;
 
 class Ajax {
     /**

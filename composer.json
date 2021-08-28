@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "RIS\\Auction\\": "includes/"
+            "Easy\\Coupons\\": "includes/"
         },
         "files": ["includes/functions.php"]
     }

@@ -7,10 +7,15 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'RIS\\Auction\\Admin' => $baseDir . '/includes/Admin.php',
-    'RIS\\Auction\\Ajax' => $baseDir . '/includes/Ajax.php',
-    'RIS\\Auction\\Api' => $baseDir . '/includes/Api.php',
-    'RIS\\Auction\\Assets' => $baseDir . '/includes/Assets.php',
-    'RIS\\Auction\\Frontend' => $baseDir . '/includes/Frontend.php',
-    'RIS\\Auction\\Installer' => $baseDir . '/includes/Installer.php',
+    'Easy\\Coupons\\Admin' => $baseDir . '/includes/Admin.php',
+    'Easy\\Coupons\\Admin\\EasyCoupons' => $baseDir . '/includes/Admin/EasyCoupons.php',
+    'Easy\\Coupons\\Admin\\Menu' => $baseDir . '/includes/Admin/Menu.php',
+    'Easy\\Coupons\\Ajax' => $baseDir . '/includes/Ajax.php',
+    'Easy\\Coupons\\Api' => $baseDir . '/includes/Api.php',
+    'Easy\\Coupons\\Api\\EasyCouponsApi' => $baseDir . '/includes/Api/EasyCouponsApi.php',
+    'Easy\\Coupons\\Assets' => $baseDir . '/includes/Assets.php',
+    'Easy\\Coupons\\Frontend' => $baseDir . '/includes/Frontend.php',
+    'Easy\\Coupons\\Frontend\\Shortcode' => $baseDir . '/includes/Frontend/Shortcode.php',
+    'Easy\\Coupons\\Installer' => $baseDir . '/includes/Installer.php',
+    'Easy\\Coupons\\Traits\\Features' => $baseDir . '/includes/Traits/Features.php',
 );

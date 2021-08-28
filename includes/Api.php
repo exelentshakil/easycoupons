@@ -1,5 +1,5 @@
 <?php
-namespace RIS\Auction;
+namespace Easy\Coupons;
 
 class Api {
     /**
@@ -10,7 +10,7 @@ class Api {
     }
 
     public function register_api() {
-        $realisity_api = new Api\RealisityApi();
+        $realisity_api = new Api\EasyCouponsApi();
         $realisity_api->register_routes();
     }
 }

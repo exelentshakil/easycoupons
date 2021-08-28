@@ -1,5 +1,5 @@
 <?php
-namespace RIS\Auction;
+namespace Easy\Coupons;
 
 class Assets {
 
@@ -23,25 +23,14 @@ class Assets {
         wp_enqueue_script( 'year-select' );
         wp_enqueue_script( 'swal' );
 
+
+        // custom scripts
+        wp_enqueue_style( 'main' );
         wp_enqueue_script( 'main' );
-        wp_enqueue_script( 'bootstrap' );
 
-        wp_enqueue_script( 'stepper' );
-        wp_enqueue_style( 'stepper' );
-        wp_enqueue_style( 'bootstrap' );
-
-        wp_enqueue_script( 'media-upload' );
-        wp_enqueue_script( 'file-upload' );
-        wp_enqueue_script( 'add-new-form' );
-
-        //wp_enqueue_script( 'update-new-form' );
-        wp_enqueue_style( 'add-new-form' );
-
-        wp_enqueue_media();
-
-        wp_localize_script( 'main', 'RIS_Notify', [
+        wp_localize_script( 'main', 'EasyCoupons', [
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
-            'nonce'   => wp_create_nonce( 'ris_nonce' ),
+            'nonce'   => wp_create_nonce( 'easy_coupons_nonce' ),
         ] );
     }
 
@@ -78,26 +67,10 @@ class Assets {
 
         return [
             'main'         => [
-                'src'     => RIS_AUCTION_ASSETS . '/css/main.css',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/css/main.css' ),
+                'src'     => EASY_COUPONS_ASSETS . '/css/main.css',
+                'version' => filemtime( EASY_COUPONS_PATH . '/assets/css/main.css' ),
                 'deps'    => [],
             ],
-            'add-new-form' => [
-                'src'     => RIS_AUCTION_ASSETS . '/css/add-new-form.css',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/css/add-new-form.css' ),
-                'deps'    => [],
-            ],
-            'stepper'      => [
-                'src'     => RIS_AUCTION_ASSETS . '/css/stepper.css',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/css/stepper.css' ),
-                'deps'    => [],
-            ],
-            'bootstrap'    => [
-                'src'     => RIS_AUCTION_ASSETS . '/css/bootstrap.min.css',
-                'version' => '4.1',
-                'deps'    => [],
-            ],
-
         ];
 
     }
@@ -105,52 +78,11 @@ class Assets {
     public function get_scripts() {
 
         return [
-            'main'                      => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/main.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/main.js' ),
+            'main'  => [
+                'src'     => EASY_COUPONS_ASSETS . '/js/main.js',
+                'version' => filemtime( EASY_COUPONS_PATH . '/assets/js/main.js' ),
                 'deps'    => ['jquery'],
             ],
-            'add-new-form'              => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/add-new-form.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/add-new-form.js' ),
-                'deps'    => ['jquery', 'file-upload'],
-            ],
-            'update-new-form'           => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/update-new-form.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/update-new-form.js' ),
-                'deps'    => ['jquery'],
-            ],
-            'stepper'                   => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/stepper.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/stepper.js' ),
-                'deps'    => ['jquery'],
-            ],
-            'year-select'               => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/year-select.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/year-select.js' ),
-                'deps'    => ['jquery'],
-            ],
-            'swal'                      => [
-                'src'     => 'https://cdn.jsdelivr.net/npm/sweetalert2@10',
-                'version' => '1.8.1',
-                'deps'    => ['jquery'],
-            ],
-            'jquery-datetimepicker-min' => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/jquery.datetimepicker.min.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/jquery.datetimepicker.min.js' ),
-                'deps'    => ['jquery'],
-            ],
-            'file-upload'               => [
-                'src'     => RIS_AUCTION_ASSETS . '/js/file-upload.js',
-                'version' => filemtime( RIS_AUCTION_PATH . '/assets/js/file-upload.js' ),
-                'deps'    => ['jquery'],
-            ],
-            'bootstrap'                 => [
-                'src'     => 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js',
-                'version' => '4.1',
-                'deps'    => ['jquery'],
-            ],
-
         ];
 
     }

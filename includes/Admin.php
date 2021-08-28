@@ -1,5 +1,5 @@
 <?php
-namespace RIS\Auction;
+namespace Easy\Coupons;
 
 class Admin {
 
@@ -8,7 +8,7 @@ class Admin {
      */
     public function __construct() {
 
-        $auctionSettings = new Admin\AuctionSettings();
-        new Admin\Menu( $auctionSettings );
+        $easyCoupons = new Admin\EasyCoupons();
+        new Admin\Menu( $easyCoupons );
     }
 }

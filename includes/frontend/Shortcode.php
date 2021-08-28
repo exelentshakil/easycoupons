@@ -1,7 +1,7 @@
 <?php
-namespace RIS\Auction\Frontend;
+namespace Easy\Coupons\Frontend;
 
-use RIS\Auction\Traits\Features;
+use Easy\Coupons\Traits\Features;
 
 class Shortcode {
     use Features;
@@ -10,7 +10,7 @@ class Shortcode {
      * Class constructor.
      */
     public function __construct() {
-        add_shortcode( 'RIS_AUCTION_FORM', [$this, 'render_shortcode'] );
+        add_shortcode( 'easy-coupons', [$this, 'render_shortcode'] );
     }
 
     public function render_shortcode( $atts, $content = '' ) {

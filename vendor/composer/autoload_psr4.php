@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'RIS\\Auction\\' => array($baseDir . '/includes'),
+    'Easy\\Coupons\\' => array($baseDir . '/includes'),
 );

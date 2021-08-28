@@ -11,14 +11,14 @@ class ComposerStaticInit217b365fa1062bf23080a518f5f68304
     );
 
     public static $prefixLengthsPsr4 = array (
-        'R' => 
+        'E' => 
         array (
-            'RIS\\Auction\\' => 12,
+            'Easy\\Coupons\\' => 13,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'RIS\\Auction\\' => 
+        'Easy\\Coupons\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
@@ -26,12 +26,17 @@ class ComposerStaticInit217b365fa1062bf23080a518f5f68304
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'RIS\\Auction\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
-        'RIS\\Auction\\Ajax' => __DIR__ . '/../..' . '/includes/Ajax.php',
-        'RIS\\Auction\\Api' => __DIR__ . '/../..' . '/includes/Api.php',
-        'RIS\\Auction\\Assets' => __DIR__ . '/../..' . '/includes/Assets.php',
-        'RIS\\Auction\\Frontend' => __DIR__ . '/../..' . '/includes/Frontend.php',
-        'RIS\\Auction\\Installer' => __DIR__ . '/../..' . '/includes/Installer.php',
+        'Easy\\Coupons\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
+        'Easy\\Coupons\\Admin\\EasyCoupons' => __DIR__ . '/../..' . '/includes/Admin/EasyCoupons.php',
+        'Easy\\Coupons\\Admin\\Menu' => __DIR__ . '/../..' . '/includes/Admin/Menu.php',
+        'Easy\\Coupons\\Ajax' => __DIR__ . '/../..' . '/includes/Ajax.php',
+        'Easy\\Coupons\\Api' => __DIR__ . '/../..' . '/includes/Api.php',
+        'Easy\\Coupons\\Api\\EasyCouponsApi' => __DIR__ . '/../..' . '/includes/Api/EasyCouponsApi.php',
+        'Easy\\Coupons\\Assets' => __DIR__ . '/../..' . '/includes/Assets.php',
+        'Easy\\Coupons\\Frontend' => __DIR__ . '/../..' . '/includes/Frontend.php',
+        'Easy\\Coupons\\Frontend\\Shortcode' => __DIR__ . '/../..' . '/includes/Frontend/Shortcode.php',
+        'Easy\\Coupons\\Installer' => __DIR__ . '/../..' . '/includes/Installer.php',
+        'Easy\\Coupons\\Traits\\Features' => __DIR__ . '/../..' . '/includes/Traits/Features.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -3,10 +3,10 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>RIS Auction</h3>
-                        <p>Auction integration tool.</p>
-                        <p>Shortcode: [RIS-AUCTION]</p>
-                        <p>Copyright &copy; <a href="https://realinternetsales.com/">Real Internet Sales</a></p>
+                        <h3>Easy Coupons</h3>
+                        <p>Lock video with Coupon Tool.</p>
+                        <p>Shortcode: [easy-coupons]</p>
+                        <p>Copyright &copy; <a href="https://www.upwork.com/freelancers/~01e19084859cda495e">Shakil Ahmed</a></p>
                     </div>
                 </div>
             </div>

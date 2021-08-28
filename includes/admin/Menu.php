@@ -1,19 +1,19 @@
 <?php
-namespace RIS\Auction\Admin;
+namespace Easy\Coupons\Admin;
 
 class Menu {
 
     /**
      * Auction settings
      *
-     * @var \AuctionSettings
+     * @var \EasyCoupons
      */
     private $auctionSettings;
 
     /**
      * Class constructor.
      */
-    public function __construct( AuctionSettings $auctionSettings ) {
+    public function __construct(EasyCoupons $auctionSettings ) {
 
         $this->auctionSettings = $auctionSettings;
         add_action( 'admin_menu', [$this, 'admin_menu'] );
@@ -22,10 +22,10 @@ class Menu {
     public function admin_menu() {
 
         $capabilities = 'manage_options';
-        $slug         = 'ris_auction';
+        $slug         = 'easy-coupons';
         $icon         = 'dashicons-admin-multisite';
 
-        $hook = add_menu_page( __( 'RIS Auction', 'ris-auction' ), __( 'RIS Auction', 'ris-auction' ), $capabilities, $slug, [$this->auctionSettings, 'menu_page'], $icon );
+        $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->auctionSettings, 'menu_page'], $icon );
         add_action( 'load-' . $hook, [$this, 'menu_script'] );
     }
 
@@ -35,10 +35,6 @@ class Menu {
 
     public function menu_enqueue_scripts() {
         wp_enqueue_style( 'main' );
-        wp_enqueue_script( 'add-new-form' );
-        wp_enqueue_script( 'stepper' );
-        wp_enqueue_style( 'add-new-form' );
-        wp_enqueue_style( 'stepper' );
     }
 
 }

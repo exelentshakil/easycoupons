@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       RIS Auction Manager
- * Plugin URI:        https://realinternetsales.com
- * Description:       RIS internal app to auth / create new auction product.
- * Version:           1.10.3
+ * Plugin Name:       Easy Coupons
+ * Plugin URI:        https://www.upwork.com/freelancers/~01e19084859cda495e
+ * Description:       A WordPress plugin to lock video with coupon code.
+ * Version:           1.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
- * Author:            RIS
- * Author URI:        https://realinternetsales.com
+ * Author:            Shakil Ahmed
+ * Author URI:        https://www.upwork.com/freelancers/~01e19084859cda495e
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       ris-auction
+ * Text Domain:       easycoupons
  * Domain Path:       /languages
  */
 
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class RIS_Auction {
+class EasyCoupons {
 
     /**
      * Plugin version
@@ -38,7 +38,6 @@ class RIS_Auction {
         session_start();
 
         require_once __DIR__ . '/vendor/autoload.php';
-        require_once __DIR__ . '/includes/TGM/ris-auction-dep.php';
 
         $this->define_constants();
 
@@ -50,30 +49,30 @@ class RIS_Auction {
     public function plugins_loaded() {
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            new RIS\Auction\Ajax();
+            new Easy\Coupons\Ajax();
         }
 
         if ( is_admin() ) {
-            new RIS\Auction\Admin();
+            new Easy\Coupons\Admin();
         } else {
-            new RIS\Auction\Frontend();
+            new Easy\Coupons\Frontend();
         }
 
-        new RIS\Auction\Assets();
+        new Easy\Coupons\Assets();
 
     }
 
     public function define_constants() {
-        define( 'RIS_AUCTION_VERSION', $this->version );
-        define( 'RIS_AUCTION_FILE', __FILE__ );
-        define( 'RIS_AUCTION_PATH', dirname( RIS_AUCTION_FILE ) );
-        define( 'RIS_AUCTION_URL', plugins_url( '', RIS_AUCTION_FILE ) );
-        define( 'RIS_AUCTION_ASSETS', RIS_AUCTION_URL . '/assets' );
+        define( 'EASY_COUPONS_VERSION', $this->version );
+        define( 'EASY_COUPONS_FILE', __FILE__ );
+        define( 'EASY_COUPONS_PATH', dirname( EASY_COUPONS_FILE ) );
+        define( 'EASY_COUPONS_URL', plugins_url( '', EASY_COUPONS_FILE ) );
+        define( 'EASY_COUPONS_ASSETS', EASY_COUPONS_URL . '/assets' );
     }
 
     public function active() {
 
-        $installer = new RIS\Auction\Installer();
+        $installer = new Easy\Coupons\Installer();
         $installer->run();
     }
 
@@ -82,14 +81,14 @@ class RIS_Auction {
     /**
      * Initialize singleton
      *
-     * @return \RIS_Auction
+     * @return \EasyCoupons
      */
     public static function init() {
 
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new RIS_Auction();
+            $instance = new EasyCoupons();
         }
 
         return $instance;
@@ -98,8 +97,8 @@ class RIS_Auction {
 }
 
 function ris_auction() {
-    return RIS_Auction::init();
+    return EasyCoupons::init();
 }
 
 // hook plugin with world
-ris_auction();
+easycoupons();
