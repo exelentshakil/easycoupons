@@ -8,11 +8,8 @@ function coupon_used($code, $is_expired = false ){}
 
 function log_coupon($status, $coupon, $vid_id){}
 
-/**
- * Generate coupon code
- *
- */
-private function generate_code(){
+
+function generate_code(){
     $bytes = random_bytes(2);
     return bin2hex($bytes);
 }

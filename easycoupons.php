@@ -96,7 +96,7 @@ class EasyCoupons {
 
 }
 
-function ris_auction() {
+function easycoupons() {
     return EasyCoupons::init();
 }
 
