@@ -10,11 +10,12 @@
 
 html, body {
     height: 100%;
-    background-color: #152733;
     overflow: hidden;
 }
 
-
+.form-content{
+    background: #495056;
+}
 .form-holder {
       display: flex;
       flex-direction: column;
