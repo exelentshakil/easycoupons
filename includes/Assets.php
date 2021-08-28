@@ -66,11 +66,17 @@ class Assets {
     public function get_styles() {
 
         return [
+            'datatables'         => [
+                'src'     => 'https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css',
+                'version' => 1.11,
+                'deps'    => [],
+            ],
+
             'main'         => [
                 'src'     => EASY_COUPONS_ASSETS . '/css/main.css',
                 'version' => filemtime( EASY_COUPONS_PATH . '/assets/css/main.css' ),
-                'deps'    => [],
-            ],
+                'deps'    => ['datatables'],
+            ]
         ];
 
     }
@@ -81,6 +87,11 @@ class Assets {
             'main'  => [
                 'src'     => EASY_COUPONS_ASSETS . '/js/main.js',
                 'version' => filemtime( EASY_COUPONS_PATH . '/assets/js/main.js' ),
+                'deps'    => ['jquery', 'datatables'],
+            ],
+            'datatables'  => [
+                'src'     => 'https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js',
+                'version' => 1.11,
                 'deps'    => ['jquery'],
             ],
         ];

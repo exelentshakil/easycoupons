@@ -27,7 +27,7 @@ class Menu {
 
         $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
         add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
-        add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->easyCoupons, 'menu_page'] );
+        add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->easyCoupons, 'generate_coupons'] );
 
         add_action( 'load-' . $hook, [$this, 'menu_script'] );
     }
@@ -38,6 +38,9 @@ class Menu {
 
     public function menu_enqueue_scripts() {
         wp_enqueue_style( 'main' );
+        wp_enqueue_script( 'main' );
+        wp_enqueue_style( 'datatable' );
+        wp_enqueue_script( 'datatable' );
     }
 
 }

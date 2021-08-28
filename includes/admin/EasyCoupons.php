@@ -30,13 +30,17 @@ class EasyCoupons {
         add_action( 'save_post', [$this, 'save_fields'] );
     }
 
+    public function generate_coupons() {
+        include __DIR__ . '/views/generate-coupons.php';
+    }
+
     public function init( $page ) {
 
         $page = isset( $_GET['action'] ) ? $_GET['action'] : '';
 
         switch ( $page ) {
         case 'settings':
-            $template = __DIR__ . '/views/settings.php';
+            $template = __DIR__ . '/views/generate-coupons.php';
             break;
         default:
             $template = __DIR__ . '/views/dashboard.php';
