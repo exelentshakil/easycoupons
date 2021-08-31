@@ -60,33 +60,57 @@ class Installer {
     public function seed_tables() {
         global $wpdb;
         $table_name = $wpdb->prefix . 'easycoupons'; // do not forget about tables prefix
-        $wpdb->insert( $table_name, [
-            'coupon'  => 'coupon1',
+        $log_table = $wpdb->prefix . 'easycoupons_logs'; // do not forget about tables prefix
+
+        $data1 = $wpdb->insert( $table_name, [
+            'coupon'  => bin2hex(random_bytes(2)),
+            'expiry_date' => date('Y-m-d H:i:s'),
+            'is_used'   => 0,
+            'created_at' => date('Y-m-d H:i:s')
+        ] );
+
+        $data2 = $wpdb->insert( $table_name, [
+            'coupon'  => bin2hex(random_bytes(2)),
             'expiry_date' => date('Y-m-d H:i:s'),
             'is_used'   => 0,
             'created_at' => date('Y-m-d H:i:s')
         ] );
 
         $wpdb->insert( $table_name, [
-            'coupon'  => 'coupon2',
+            'coupon'  => bin2hex(random_bytes(2)),
             'expiry_date' => date('Y-m-d H:i:s'),
             'is_used'   => 0,
             'created_at' => date('Y-m-d H:i:s')
         ] );
 
         $wpdb->insert( $table_name, [
-            'coupon'  => 'coupon3',
+            'coupon'  => bin2hex(random_bytes(2)),
             'expiry_date' => date('Y-m-d H:i:s'),
             'is_used'   => 0,
             'created_at' => date('Y-m-d H:i:s')
         ] );
 
-        $wpdb->insert( $table_name, [
-            'coupon'  => 'coupon4',
-            'expiry_date' => date('Y-m-d H:i:s'),
-            'is_used'   => 0,
+
+        $data = $wpdb->get_results("SELECT * FROM {$table_name}");
+
+        $wpdb->insert($log_table, [
+            'coupon' => $data[0]->coupon,
+            'video_id' => 1,
+            'video_title' => 'https://www.youtube.com/watch?v=ScMzIvxBSi4',
+            'status' => 0,
             'created_at' => date('Y-m-d H:i:s')
-        ] );
+
+        ]);
+
+        $wpdb->insert($log_table, [
+            'coupon' => $data[1]->coupon,
+            'video_id' => 2,
+            'video_title' => 'https://www.youtube.com/watch?v=ScMzIvxBSi4',
+            'status' => 0,
+            'created_at' => date('Y-m-d H:i:s')
+
+        ]);
+
     }
 
 }
