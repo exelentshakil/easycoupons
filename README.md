@@ -35,6 +35,7 @@ https://www.loom.com/share/c6723b0675bc4dcd872edbddd01b6a69
 
 ## TESTS
 - To run tests: ./vendor/bin/phpunit tests --testdox
+- ![alt text](./tests/tests.png)
 
 ## FUTURE
 - cron job / event to automatically check if a coupon expired
