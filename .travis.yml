@@ -32,4 +32,4 @@ install:
   - composer show
 
 script:
-  - ./vendor/bin/phpunit tests --testdox
+  - vendor/bin/phpunit tests --testdox
