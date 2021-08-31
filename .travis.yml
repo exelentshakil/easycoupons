@@ -1,35 +1,36 @@
+# Main Travis CI configuration file for wordpress-plugin tests
+# https://github.com/benbalter/wordpress-plugin-tests
+
+# Tell Travis CI we're using PHP
 language: php
 
-services:
-  - mysql
-
-env:
-  global:
-    - WP_DB_USER=wp
-    - WP_DB_PASS=password
-    - WP_DB_NAME=wp_tests
-    - WP_VERSION=*
-
+# Versions of PHP to test against
 php:
-  - 7.4
-  - 7.3
-  - 7.2
-  - 5.6
+  - 5.3
+  - 5.4
 
-matrix:
-  include:
-    - php: 5.
-      env: WP_VERSION=4.4.0
+# Specify versions of WordPress to test against
+# WP_VERSION = WordPress version number (use "master" for SVN trunk)
+# WP_MULTISITE = whether to test multisite (use either "0" or "1")
+env:
+  - WP_VERSION=master WP_MULTISITE=0
+  - WP_VERSION=3.4.1 WP_MULTISITE=0
+  - WP_VERSION=3.3.2 WP_MULTISITE=0
+  - WP_VERSION=3.2.1 WP_MULTISITE=0
+  - WP_VERSION=master WP_MULTISITE=1
+  - WP_VERSION=3.4.1 WP_MULTISITE=1
+  - WP_VERSION=3.3.2 WP_MULTISITE=1
+  - WP_VERSION=3.2.1 WP_MULTISITE=1
 
+# Grab the setup script and execute
 before_script:
-  - mysql -u root -e "GRANT ALL PRIVILEGES ON ${WP_DB_NAME}.* TO ${WP_DB_USER} IDENTIFIED BY '${WP_DB_PASS}';"
-  - mysql -u root -e "CREATE DATABASE ${WP_DB_NAME};"
+  - wget https://raw.github.com/benbalter/wordpress-plugin-tests/setup/setup.sh
+  - source setup.sh
 
-install:
-  - composer validate --no-check-all --ansi
-  - composer require --no-update --dev roots/wordpress:${WP_VERSION} wp-phpunit/wp-phpunit:${WP_VERSION}
-  - composer install
-  - composer show
+script: phpunit
 
-script:
-  - vendor/bin/phpunit tests --testdox
+# wordpress-plugin-tests specific config
+# Tells Travis CI not to run unit tests against the setup branch
+branches:
+  except:
+    - setup
