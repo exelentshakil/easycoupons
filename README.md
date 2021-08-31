@@ -22,8 +22,8 @@ https://www.loom.com/share/c6723b0675bc4dcd872edbddd01b6a69
     - [x] As an admin, I should be able to see which video a coupon code was applied to - **2 hours**
     - [x] As an admin, I should see a report of failed coupon code validations with two categories: not found & already used  - **4 hours**
     - [x] As an admin, I should be able to use the coupon code ADMN unlimited times to access any video  - **2 hours**
-- [ ] Testing - **4 hours**
-    - [ ] As a developer, I should be able to test any business logic with automated unit tests
+- [x] Testing - **4 hours**
+    - [x] As a developer, I should be able to test any business logic with automated unit tests
 - [x] Styling
     - [x] Create a custom WP theme with the stylesheet of your choice - **4 hours**
     - [x] Add animation to the success and failure states of entering a coupon - **2 hours**
@@ -33,8 +33,8 @@ https://www.loom.com/share/c6723b0675bc4dcd872edbddd01b6a69
     - [x] Update the README Any other feedback including which features could be refactored or improved
 
 
-## TODO
-- Test cases
+## TESTS
+- To run tests: ./vendor/bin/phpunit tests --testdox
 
 ## FUTURE
 - cron job / event to automatically check if a coupon expired
