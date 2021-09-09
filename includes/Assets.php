@@ -26,7 +26,7 @@ class Assets {
         wp_enqueue_style( 'main' );
         wp_enqueue_script( 'main' );
 
-        wp_localize_script( 'main', 'Coupon', [
+        wp_localize_script( 'main', 'EasyCoupons', [
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
             'nonce'   => wp_create_nonce( 'easy_coupons_nonce' ),
         ] );
