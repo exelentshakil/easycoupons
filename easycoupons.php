@@ -19,6 +19,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+/**
+ * Load all composer dependencies
+ */
+require_once __DIR__ . '/vendor/autoload.php';
 
 class EasyCoupons {
 
@@ -36,9 +40,6 @@ class EasyCoupons {
     public function __construct() {
 
         session_start();
-
-        require_once __DIR__ . '/vendor/autoload.php';
-
         $this->define_constants();
 
         register_activation_hook( __FILE__, [$this, 'active'] );
