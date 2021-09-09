@@ -51,7 +51,7 @@ class EasyCoupons {
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             new Easy\Coupons\Ajax();
         }
-        var_dump( new Easy\Coupons\Assets());
+        var_dump(new Easy\Coupons\Admin());
 //
 //        if ( is_admin() ) {
 //            new Easy\Coupons\AdminLoader();
