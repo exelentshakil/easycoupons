@@ -1,6 +1,4 @@
-   <?php var_dump(new Easy\Coupons\Admin\Coupon());?>
-
-    <div class="form-body">
+<div class="form-body">
         <div class="row">
             <div class="form-holder">
                 <div class="form-content">
