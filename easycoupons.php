@@ -23,8 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Load all composer dependencies
  */
 
-require __DIR__ . '/vendor/autoload.php';
-
 class EasyCoupons {
 
     /**
@@ -40,7 +38,7 @@ class EasyCoupons {
      */
     public function __construct() {
 
-        session_start();
+        require __DIR__ . '/vendor/autoload.php';
         $this->define_constants();
 
         register_activation_hook( __FILE__, [$this, 'active'] );
@@ -53,12 +51,13 @@ class EasyCoupons {
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             new Easy\Coupons\Ajax();
         }
-
-        if ( is_admin() ) {
-            new Easy\Coupons\AdminLoader();
-        } else {
-            new Easy\Coupons\Frontend();
-        }
+        var_dump( new Easy\Coupons\Assets());
+//
+//        if ( is_admin() ) {
+//            new Easy\Coupons\AdminLoader();
+//        } else {
+//            new Easy\Coupons\Frontend();
+//        }
 
         new Easy\Coupons\Assets();
 

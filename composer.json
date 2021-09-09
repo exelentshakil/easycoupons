@@ -14,7 +14,6 @@
         "psr-4": {
             "Easy\\Coupons\\": "includes/"
         },
-        "classmap": ["includes/"],
         "files": ["includes/functions.php"]
     },
     "require-dev": {
