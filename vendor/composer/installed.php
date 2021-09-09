@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '20c292dbd525a9b49cec1dc8b34bfe49723c4642',
+        'reference' => '9b805c8bf96e05d5a8a5fd2cf4deab6f71a106b4',
         'name' => 'exelentshakil/ris-auction',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '20c292dbd525a9b49cec1dc8b34bfe49723c4642',
+            'reference' => '9b805c8bf96e05d5a8a5fd2cf4deab6f71a106b4',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
@@ -88,7 +88,7 @@
             'aliases' => array(
                 0 => '5.x-dev',
             ),
-            'reference' => 'c212334d39ff968e45e03ca594ace12c4dc2da93',
+            'reference' => '44e31d19a6e81eb6ede34ef40c5687247d6eaaf3',
             'dev_requirement' => true,
         ),
         'phpdocumentor/type-resolver' => array(
@@ -160,7 +160,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
-            'reference' => '388d57bf65b7b5bd26dc6d969c56887b7e9e0d22',
+            'reference' => '945290fc212307359838e14f678b373ae71f8e51',
             'dev_requirement' => true,
         ),
         'sebastian/cli-parser' => array(

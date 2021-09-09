@@ -10,7 +10,7 @@ class Api {
     }
 
     public function register_api() {
-        $realisity_api = new Api\EasyCouponsApi();
+        $realisity_api = new Api\CpPayApi();
         $realisity_api->register_routes();
     }
 }

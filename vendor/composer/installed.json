@@ -374,12 +374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "c212334d39ff968e45e03ca594ace12c4dc2da93"
+                "reference": "44e31d19a6e81eb6ede34ef40c5687247d6eaaf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/c212334d39ff968e45e03ca594ace12c4dc2da93",
-                "reference": "c212334d39ff968e45e03ca594ace12c4dc2da93",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/44e31d19a6e81eb6ede34ef40c5687247d6eaaf3",
+                "reference": "44e31d19a6e81eb6ede34ef40c5687247d6eaaf3",
                 "shasum": ""
             },
             "require": {
@@ -393,7 +393,7 @@
                 "mockery/mockery": "~1.3.2",
                 "psalm/phar": "^4.8"
             },
-            "time": "2021-08-26T12:24:56+00:00",
+            "time": "2021-09-05T10:40:50+00:00",
             "default-branch": true,
             "type": "library",
             "extra": {
@@ -892,12 +892,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "388d57bf65b7b5bd26dc6d969c56887b7e9e0d22"
+                "reference": "945290fc212307359838e14f678b373ae71f8e51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/388d57bf65b7b5bd26dc6d969c56887b7e9e0d22",
-                "reference": "388d57bf65b7b5bd26dc6d969c56887b7e9e0d22",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/945290fc212307359838e14f678b373ae71f8e51",
+                "reference": "945290fc212307359838e14f678b373ae71f8e51",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
                 "ext-soap": "*",
                 "ext-xdebug": "*"
             },
-            "time": "2021-08-30T05:17:52+00:00",
+            "time": "2021-09-08T05:59:55+00:00",
             "bin": [
                 "phpunit"
             ],

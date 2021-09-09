@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d07b51d-718c-4743-bbdd-745315e3d205" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/Api.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/Api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +16,13 @@
   </component>
   <component name="DrupalConfiguration">
     <drupalPath />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,16 +87,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes/Admin/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cppay/includes/Frontend/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../cppay/includes/Frontend/views" />
+      <recent name="$PROJECT_DIR$/../cppay/includes/Admin/views" />
+      <recent name="$PROJECT_DIR$/.." />
       <recent name="$PROJECT_DIR$/includes/Admin/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../cppay/assets/images" />
       <recent name="$PROJECT_DIR$/tests" />
     </key>
   </component>
@@ -101,7 +113,10 @@
       <option name="presentableId" value="Default" />
       <updated>1630123040113</updated>
       <workItem from="1630123041364" duration="30567000" />
-      <workItem from="1630386854453" duration="18116000" />
+      <workItem from="1630386854453" duration="18175000" />
+      <workItem from="1631090454436" duration="669000" />
+      <workItem from="1631106414292" duration="28616000" />
+      <workItem from="1631187381897" duration="262000" />
     </task>
     <servers />
   </component>
@@ -122,6 +137,17 @@
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../../..</wordpressPath>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../subscriptio/includes/log-entry-functions.php</url>
+          <line>49</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
