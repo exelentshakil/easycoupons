@@ -16,9 +16,7 @@ function ec_coupons($args = []) {
 
     $args = wp_parse_args($args, $defaults);
 
-    $sql = $wpdb->prepare(
-        "SELECT * FROM {$table} ORDER BY {$args['orderby']} {$args['order']}"
-    );
+    $sql = "SELECT * FROM {$table} ORDER BY {$args['orderby']} {$args['order']}";
 
     $coupons = $wpdb->get_results($sql);
 
@@ -55,7 +53,7 @@ function ec_delete_by($date) {
 
     $table = $wpdb->prefix . 'easycoupons';
 
-    $sql = $wpdb->prepare("DELETE FROM $table WHERE DATE(expiry_date)='$date'");
+    $sql = "DELETE FROM $table WHERE DATE(expiry_date)='$date'";
     return $wpdb->query( $sql );
 }
 
@@ -77,9 +75,7 @@ function ec_coupons_logs($args = []) {
 
     $args = wp_parse_args($args, $defaults);
 
-    $sql = $wpdb->prepare(
-        "SELECT * FROM {$table} ORDER BY {$args['orderby']} {$args['order']}"
-    );
+    $sql = "SELECT * FROM {$table} ORDER BY {$args['orderby']} {$args['order']}";
 
     $coupons = $wpdb->get_results($sql);
 
@@ -115,6 +111,6 @@ function ec_delete_log_by($date) {
 
     $table = $wpdb->prefix . 'easycoupons_logs';
 
-    $sql = $wpdb->prepare("DELETE FROM $table WHERE DATE(created_at)='$date'");
+    $sql = "DELETE FROM $table WHERE DATE(created_at)='$date'";
     return $wpdb->query( $sql );
 }
