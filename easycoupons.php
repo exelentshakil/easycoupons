@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Load all composer dependencies
  */
 
-require plugin_dir_path( __FILE__ ) . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 class EasyCoupons {
 
