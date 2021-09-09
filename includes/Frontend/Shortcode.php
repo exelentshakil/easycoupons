@@ -24,8 +24,9 @@ class Shortcode {
         $vid_url   = get_post_meta($vid_id, 'video', true);
         $vid_poster= get_the_post_thumbnail_url($vid_id, 'large');
 
-        //Check if already unlocked
-        $unlocked_list = urldecode($_COOKIE['unlocked_vids']);
+        //Check if already
+        $unlocked_videos = !empty( $_COOKIE['unlocked_vids']) ? $_COOKIE['unlocked_vids']: '';
+        $unlocked_list = urldecode($unlocked_videos);
         $unlocked_list = stripslashes($unlocked_list);
         $unlocked_list = json_decode($unlocked_list,true);
 
