@@ -1,6 +1,6 @@
 {
-    "name": "exelentshakil/ris-auction",
-    "description": "RIS internal app to auth / create new auction product.",
+    "name": "exelentshakil/easycoupons",
+    "description": "A WordPress plugin to lock video with coupon code.",
     "type": "wordpress-plugin",
     "license": "GPLV2",
     "authors": [

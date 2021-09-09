@@ -5,8 +5,8 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9b805c8bf96e05d5a8a5fd2cf4deab6f71a106b4',
-        'name' => 'exelentshakil/ris-auction',
+        'reference' => '24d177375c9ef255bb1a8f8be4c5c84fa5bab334',
+        'name' => 'exelentshakil/easycoupons',
         'dev' => true,
     ),
     'versions' => array(
@@ -19,13 +19,13 @@
             'reference' => '6410c4b8352cb64218641457cef64997e6b784fb',
             'dev_requirement' => true,
         ),
-        'exelentshakil/ris-auction' => array(
+        'exelentshakil/easycoupons' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9b805c8bf96e05d5a8a5fd2cf4deab6f71a106b4',
+            'reference' => '24d177375c9ef255bb1a8f8be4c5c84fa5bab334',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
