@@ -6,7 +6,7 @@ class Installer {
     public function run() {
         $this->update_version();
         $this->create_tables();
-        $this->seed_tables();
+        //$this->seed_tables();
     }
 
     public function update_version() {

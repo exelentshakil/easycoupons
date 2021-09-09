@@ -49,7 +49,7 @@
             echo $status;
             ?>
         </td>
-        <td><?php echo $user->user_login; ?></td>
+        <td><?php echo is_object($user) ? $user->user_login : ''; ?></td>
         <td>
             <a href="#" id="delete-coupon" data-id="<?php echo $coupon->id; ?>">Delete</a>
         </td>
