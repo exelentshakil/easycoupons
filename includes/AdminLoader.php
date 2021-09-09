@@ -1,7 +1,7 @@
 <?php
 namespace Easy\Coupons;
 
-class Admin {
+class AdminLoader {
 
     /**
      * Class constructor.

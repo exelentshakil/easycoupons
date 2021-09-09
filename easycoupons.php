@@ -53,7 +53,7 @@ class EasyCoupons {
         }
 
         if ( is_admin() ) {
-            new Easy\Coupons\Admin();
+            new Easy\Coupons\AdminLoader();
         } else {
             new Easy\Coupons\Frontend();
         }

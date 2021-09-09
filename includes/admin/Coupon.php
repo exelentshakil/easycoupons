@@ -208,7 +208,7 @@ class Coupon {
         $labels = array(
             'name' => _x( 'Easy Videos', 'Post Type General Name', 'easycoupons' ),
             'singular_name' => _x( 'Easy Video', 'Post Type Singular Name', 'easycoupons' ),
-            'menu_name' => _x( 'Easy Videos', 'Admin Menu text', 'easycoupons' ),
+            'menu_name' => _x( 'Easy Videos', 'AdminLoader Menu text', 'easycoupons' ),
             'name_admin_bar' => _x( 'Easy Video', 'Add New on Toolbar', 'easycoupons' ),
             'archives' => __( 'Easy Video Archives', 'easycoupons' ),
             'attributes' => __( 'Easy Video Attributes', 'easycoupons' ),
