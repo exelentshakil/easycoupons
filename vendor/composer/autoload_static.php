@@ -81,6 +81,17 @@ class ComposerStaticInite684285f61a91b515d76e9f2b85325d7
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Easy\\Coupons\\AdminLoader' => __DIR__ . '/../..' . '/includes/AdminLoader.php',
+        'Easy\\Coupons\\Admin\\Coupon' => __DIR__ . '/../..' . '/includes/Admin/Coupon.php',
+        'Easy\\Coupons\\Admin\\Menu' => __DIR__ . '/../..' . '/includes/Admin/Menu.php',
+        'Easy\\Coupons\\Ajax' => __DIR__ . '/../..' . '/includes/Ajax.php',
+        'Easy\\Coupons\\Api' => __DIR__ . '/../..' . '/includes/Api.php',
+        'Easy\\Coupons\\Api\\EasyCouponsApi' => __DIR__ . '/../..' . '/includes/Api/EasyCouponsApi.php',
+        'Easy\\Coupons\\Assets' => __DIR__ . '/../..' . '/includes/Assets.php',
+        'Easy\\Coupons\\Frontend' => __DIR__ . '/../..' . '/includes/Frontend.php',
+        'Easy\\Coupons\\Frontend\\Shortcode' => __DIR__ . '/../..' . '/includes/Frontend/Shortcode.php',
+        'Easy\\Coupons\\Installer' => __DIR__ . '/../..' . '/includes/Installer.php',
+        'Easy\\Coupons\\Traits\\Features' => __DIR__ . '/../..' . '/includes/Traits/Features.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',

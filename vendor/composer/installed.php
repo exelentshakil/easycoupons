@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ce64143761ff3aee387d53e52d3886e9b713de5b',
+        'reference' => '821bc63a52707e585e3d585f471b082d90255d9b',
         'name' => 'exelentshakil/easycoupons',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ce64143761ff3aee387d53e52d3886e9b713de5b',
+            'reference' => '821bc63a52707e585e3d585f471b082d90255d9b',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(

@@ -7,6 +7,17 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Easy\\Coupons\\AdminLoader' => $baseDir . '/includes/AdminLoader.php',
+    'Easy\\Coupons\\Admin\\Coupon' => $baseDir . '/includes/Admin/Coupon.php',
+    'Easy\\Coupons\\Admin\\Menu' => $baseDir . '/includes/Admin/Menu.php',
+    'Easy\\Coupons\\Ajax' => $baseDir . '/includes/Ajax.php',
+    'Easy\\Coupons\\Api' => $baseDir . '/includes/Api.php',
+    'Easy\\Coupons\\Api\\EasyCouponsApi' => $baseDir . '/includes/Api/EasyCouponsApi.php',
+    'Easy\\Coupons\\Assets' => $baseDir . '/includes/Assets.php',
+    'Easy\\Coupons\\Frontend' => $baseDir . '/includes/Frontend.php',
+    'Easy\\Coupons\\Frontend\\Shortcode' => $baseDir . '/includes/Frontend/Shortcode.php',
+    'Easy\\Coupons\\Installer' => $baseDir . '/includes/Installer.php',
+    'Easy\\Coupons\\Traits\\Features' => $baseDir . '/includes/Traits/Features.php',
     'PHPUnit\\Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => $vendorDir . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert.php',
