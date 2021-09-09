@@ -111,7 +111,7 @@ class ComposerStaticInit217b365fa1062bf23080a518f5f68304
         'Doctrine\\Instantiator\\Instantiator' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php',
         'Doctrine\\Instantiator\\InstantiatorInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/InstantiatorInterface.php',
         'Easy\\Coupons\\Admin' => __DIR__ . '/../..' . '/includes/Admin.php',
-        'Easy\\Coupons\\Admin\\EasyCoupons' => __DIR__ . '/../..' . '/includes/Admin/EasyCoupons.php',
+        'Easy\\Coupons\\Admin\\Coupon' => __DIR__ . '/../..' . '/includes/Admin/Coupon.php',
         'Easy\\Coupons\\Admin\\Menu' => __DIR__ . '/../..' . '/includes/Admin/Menu.php',
         'Easy\\Coupons\\Ajax' => __DIR__ . '/../..' . '/includes/Ajax.php',
         'Easy\\Coupons\\Api' => __DIR__ . '/../..' . '/includes/Api.php',

@@ -37,7 +37,7 @@ return array(
     'Doctrine\\Instantiator\\Instantiator' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php',
     'Doctrine\\Instantiator\\InstantiatorInterface' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/InstantiatorInterface.php',
     'Easy\\Coupons\\Admin' => $baseDir . '/includes/Admin.php',
-    'Easy\\Coupons\\Admin\\EasyCoupons' => $baseDir . '/includes/Admin/EasyCoupons.php',
+    'Easy\\Coupons\\Admin\\Coupon' => $baseDir . '/includes/Admin/Coupon.php',
     'Easy\\Coupons\\Admin\\Menu' => $baseDir . '/includes/Admin/Menu.php',
     'Easy\\Coupons\\Ajax' => $baseDir . '/includes/Ajax.php',
     'Easy\\Coupons\\Api' => $baseDir . '/includes/Api.php',

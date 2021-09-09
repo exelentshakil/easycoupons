@@ -13,7 +13,7 @@ class Menu {
     /**
      * Class constructor.
      */
-    public function __construct(EasyCoupons $easyCoupons ) {
+    public function __construct(Coupon $easyCoupons ) {
 
         $this->easyCoupons = $easyCoupons;
         add_action( 'admin_menu', [$this, 'admin_menu'] );

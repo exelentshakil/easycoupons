@@ -1,7 +1,7 @@
 <?php
 namespace Easy\Coupons\Admin;
 
-class EasyCoupons {
+class Coupon {
 
     private $database_table;
 

@@ -8,7 +8,7 @@ class Admin {
      */
     public function __construct() {
 
-        $easyCoupons = new Admin\EasyCoupons();
+        $easyCoupons = new Admin\Coupon();
         new Admin\Menu( $easyCoupons );
     }
 }
