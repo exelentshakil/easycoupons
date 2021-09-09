@@ -28,7 +28,7 @@ class Installer {
         $table_name     = $wpdb->prefix . 'easycoupons';
         $table_name_log = $wpdb->prefix . 'easycoupons_logs';
 
-        $sql = "CREATE TABLE $table_name (
+        $sql = "CREATE TABLE IF NOT EXISTS $table_name (
 					id mediumint(9) NOT NULL AUTO_INCREMENT,
 					coupon varchar(55) NOT NULL,
 					expiry_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
@@ -39,7 +39,7 @@ class Installer {
 					UNIQUE (coupon)
 					) $charset_collate;";
 
-        $sql .= "CREATE TABLE $table_name_log (
+        $sql .= "CREATE TABLE IF NOT EXISTS $table_name_log (
 					id mediumint(9) NOT NULL AUTO_INCREMENT,
 					coupon varchar(55) NOT NULL,
 					status smallint(2) NOT NULL,
