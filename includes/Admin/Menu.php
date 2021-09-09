@@ -26,7 +26,7 @@ class Menu {
         $icon         = 'dashicons-embed-video';
 
         $hook = add_menu_page( __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
-        add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'], $icon );
+        add_submenu_page( $slug, __( 'Easy Coupons', 'easycoupons' ), __( 'Easy Coupons', 'easycoupons' ), $capabilities, $slug, [$this->easyCoupons, 'menu_page'] );
         add_submenu_page( $slug, __( 'All Coupons', 'easycoupons' ), __( 'All Coupons', 'easycoupons' ), $capabilities, 'coupons', [$this->easyCoupons, 'coupons'] );
         add_submenu_page( $slug, __( 'Coupons Log', 'easycoupons' ), __( 'Coupons Log', 'easycoupons' ), $capabilities, 'coupons-log', [$this->easyCoupons, 'coupons_log'] );
         add_submenu_page( $slug, __( 'Generate Coupons', 'easycoupons' ), __( 'Generate Coupons', 'easycoupons' ), $capabilities, 'generate-coupons', [$this->easyCoupons, 'generate_coupons'] );
