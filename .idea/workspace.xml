@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d07b51d-718c-4743-bbdd-745315e3d205" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/easycoupons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easycoupons.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easycoupons.php" beforeDir="false" afterPath="$PROJECT_DIR$/easycoupons.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/Coupon.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/Coupon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/views/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/views/dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +34,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/includes/Admin/Coupon.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="JoomlaConfiguration">
     <joomlaConfigPath />
@@ -125,7 +117,7 @@
       <workItem from="1631090454436" duration="669000" />
       <workItem from="1631106414292" duration="28616000" />
       <workItem from="1631187381897" duration="844000" />
-      <workItem from="1631188230362" duration="13303000" />
+      <workItem from="1631188230362" duration="14267000" />
     </task>
     <servers />
   </component>
